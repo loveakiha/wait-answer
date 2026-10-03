@@ -51,7 +51,19 @@ and a stopping condition — not a fake product).
 
 ## Install
 
-Copy `SKILL.md` into your Hermes skills directory and the skill is available:
+Install it straight from this repo through the Hermes Skills Hub:
+
+```bash
+hermes skills install loveakiha/wait-answer/skills/wait-answer
+```
+
+Or straight from the raw file — no indexing required:
+
+```bash
+hermes skills install https://raw.githubusercontent.com/loveakiha/wait-answer/main/skills/wait-answer/SKILL.md
+```
+
+Or just copy the file in by hand:
 
 ```
 ~/.hermes/skills/wait-answer/SKILL.md
@@ -61,6 +73,20 @@ Copy `SKILL.md` into your Hermes skills directory and the skill is available:
 
 The skill is cross-platform (linux, macos, windows) and has no required commands or environment
 variables.
+
+## Repository layout
+
+```
+wait-answer/
+├── README.md                 # this file (for humans)
+├── LICENSE
+└── skills/
+    └── wait-answer/
+        └── SKILL.md          # the skill itself (for the agent)
+```
+
+`skills/<name>/SKILL.md` is the layout the skills CLI and the Hermes Skills Hub expect, so the skill
+resolves to the identifier `loveakiha/wait-answer/skills/wait-answer`.
 
 ## License
 
