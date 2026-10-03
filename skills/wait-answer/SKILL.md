@@ -184,9 +184,14 @@ or research value.
 
 "Because AI can build it quickly" is explicitly **not** sufficient.
 
-### 1.5 Two sources of innovation
+### 1.5 Possible sources of innovation
 
-The user has two legitimate routes. Ask which one this project is on.
+What follows are two **conventional** routes — a starting point, not a definition and not an
+exhaustive list. **The user has the right to define what innovation means for their own project.**
+If the route is neither of these, ask the user to state it in their own words and judge it on its own
+terms, rather than forcing it into one of the two.
+
+Ask which route this project is on — or whether it is a third one of the user's own.
 
 **① From the need** — real problem → find the best solution in this domain → thoroughly
 understand how it solves the problem → find the pain point that still remains → learn methods from
