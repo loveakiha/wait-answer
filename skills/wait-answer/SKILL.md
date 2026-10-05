@@ -2,7 +2,7 @@
 name: wait-answer
 description: "Gate any new product or feature idea before coding starts."
 version: 1.6.0
-author: Xun Nuo (loveakiha), Hermes Agent
+author: loveakiha, Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
