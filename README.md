@@ -42,12 +42,32 @@ When the skill is loaded, the assistant acts as a **challenger**, not an impleme
 - Runs **innovation reconnaissance** — researches how the problem is actually solved in the world
   today, with real sources — before judging whether the idea is novel.
 - Works through the three gates in order: Innovation → Minimalism → Utility.
-- Ends with a **mandatory pause**: a short decision summary (problem, frequency, current solution,
-  reason to build, MVP, cost, value, risk, type) — and only then does it start coding.
+- Ends with a **mandatory pause**: a nine-field decision summary (problem, innovation, minimalism/MVP,
+  utility, current solution, reason to build, cost, value, risk) plus a type classification — and it
+  starts coding **only after the user confirms that summary**.
+- **Writes the decision to disk** in `decisions/YYYY-MM-DD-<slug>.md`, with the trigger that will bring
+  the user back and a follow-up date three to four weeks later. On the next load it checks whether the
+  predicted frequency matched actual use. Without this the skill only advises; with it the skill
+  accumulates evidence.
 
 It also defines **stop conditions** (when to say "don't build this yet, here's what's missing") and
 a clean **exception path for genuine experiments** (a bounded idea with a hypothesis, time budget,
 and a stopping condition — not a fake product).
+
+## What a gate run looks like
+
+```
+You: I want to build an AI memory system for my notes.
+Agent: What happens today that makes you need this?          <- problem, not features
+You: I re-explain the same context to ChatGPT every session.
+Agent: [recon] Today: ChatGPT memory, Obsidian + templates, mem0, Letta, a manual prompt file.
+       Each leaves X unsolved. Which one is your actual problem with?
+Agent: If version 1 could only do ONE thing, what must it be?
+Agent: How often would you actually use it? What brings you back in three weeks?
+Agent: [summary, nine fields] Decision: EXPERIMENT. Confirm before I write anything.
+Agent: [writes decisions/2026-10-05-ai-memory.md, follow-up 2026-11-01]
+```
+
 
 ## Install
 
@@ -66,7 +86,8 @@ hermes skills install https://raw.githubusercontent.com/loveakiha/wait-answer/ma
 Or just copy the file in by hand:
 
 ```
-~/.hermes/skills/wait-answer/SKILL.md
+~/.hermes/skills/wait-answer/SKILL.md              # linux / macos
+%LOCALAPPDATA%\hermes\skills\wait-answer\SKILL.md  # Windows
 ```
 
 (or the skills directory of a specific Hermes profile, under `profiles/<name>/skills/`).
@@ -80,9 +101,14 @@ variables.
 wait-answer/
 ├── README.md                 # this file (for humans)
 ├── LICENSE
+├── decisions/                # the accumulated gate records
 └── skills/
     └── wait-answer/
-        └── SKILL.md          # the skill itself (for the agent)
+        ├── SKILL.md          # the skill itself (for the agent)
+        ├── references/
+        │   └── question-bank.md
+        └── templates/
+            └── decision-record.md
 ```
 
 `skills/<name>/SKILL.md` is the layout the skills CLI and the Hermes Skills Hub expect, so the skill
