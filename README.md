@@ -60,8 +60,8 @@ and a stopping condition — not a fake product).
 You: I want to build an AI memory system for my notes.
 Agent: What happens today that makes you need this?          <- problem, not features
 You: I re-explain the same context to ChatGPT every session.
-Agent: [recon] Today: ChatGPT memory, Obsidian + templates, mem0, Letta, a manual prompt file.
-       Each leaves X unsolved. Which one is your actual problem with?
+Agent: [recon] Today: ChatGPT memory, Obsidian + templates, mem0, Letta, a manual prompt file — each
+       leaves a named defect. Which one is your actual problem with?
 Agent: If version 1 could only do ONE thing, what must it be?
 Agent: How often would you actually use it? What brings you back in three weeks?
 Agent: [summary, nine fields] Decision: EXPERIMENT. Confirm before I write anything.
